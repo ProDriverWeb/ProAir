@@ -1,0 +1,885 @@
+@import url('https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+html,body,header,footer,menu,nav,aside,main,article,section,div,span,h1,h2,h3,h4,p,a,hr,ul,ol,li,img,table,tr,td,button{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: inherit;
+    font-family: "Rubik", "Chiron GoRound TC", sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+img{
+    width: 100%;
+    vertical-align: bottom;
+}
+
+/* 原本的淡藍色配色
+:root{
+    --mainColor--: #A1C6D9;
+    --mainAlphaColor--: #A1C6D9D1;
+    --darkGray--: #1D1E1F;
+    --midGray--: #3e3e3e;
+    --lightGray--: #797979;
+    --darkBlack--: #000;
+    --alphaBlack--: #0008;
+    --textWhite--: #FFF;
+    --transition--: all 600ms ease;
+}
+*/
+
+:root{
+    --mainColor--: #1A2B48;          /* 主色 - 深藍 */
+    --mainAlphaColor--: #1A2B48D9;   /* 主色透明版 */
+    --accentColor--: #D4AF37;        /* 輔助色 - 金色 */
+    --bgColor--: #F8F9FA;            /* 全站背景色 */
+    /* --softPink--: #E8AEB7;           新增這行淡粉紅色 */
+    --darkGray--: #1D1E1F;
+    --midGray--: #3e3e3e;
+    --lightGray--: #797979;
+    --darkBlack--: #000;
+    --alphaBlack--: #0008;
+    --textWhite--: #FFF;
+
+    --transition--: all 600ms ease;
+}
+
+/* 增加一個小 Button Top 
+#btnTop{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background-color: var(--mainColor--);
+    color: var(--textWhite--);
+    font-weight: 600;
+    font-size: 14px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: var(--transition--);
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btnTop.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+#btnTop:hover{
+    background-color: var(--accentColor--);
+    color: var(--darkBlack--);
+    transform: translateY(-3px);
+}
+*/
+
+/* 增加一個小 Button Top */
+#btnTop{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.35);
+    cursor: pointer;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    background: rgba(255,255,255,0.18);
+    color: var(--mainColor--);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    transition: var(--transition--);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+}
+
+#btnTop svg{
+    transition: 0.3s;
+}
+
+#btnTop.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btnTop:hover{
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+#btnTop:hover svg{
+    transform: translateY(-2px);
+}
+
+
+
+/* 新增這一段（讓背景色生效） */
+body{
+    background-color: var(--bgColor--);
+}
+
+/* Logo 用金色（更精品感） */
+header #logo{
+    color: var(--accentColor--);
+}
+
+/* Hover 改成金色（現在很適合）*/
+header menu ul li:hover a{
+    background-color: var(--accentColor--);
+    color: var(--darkBlack--);
+}
+
+/* Icon Hover 改金色（質感瞬間提升） */
+#about .flex .grid-10:hover i{
+    color: var(--accentColor--);
+}
+
+/*Icon Hover 用粉紅（溫柔感）
+#about .flex .grid-10:hover i{
+    color: var(--softPink--);
+}*/
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 按鈕改成深藍底＋金色 Hover（精品感） */
+.btn-theme{
+    background-color: var(--mainColor--);
+    color: var(--textWhite--);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: var(--transition--);
+}
+
+/* 主色深藍和淺灰 (專業感) */
+.btn-theme:hover{
+    background-color: var(--accentColor--);
+    color: var(--darkBlack--);
+}
+
+/*按鈕 Hover 加一點溫暖
+.btn-theme:hover{
+    background-color: var(--softPink--);
+    color: var(--darkBlack--);
+} */
+
+.btn-theme, .btn-line{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--textWhite--);
+    padding: 0.45rem 1rem;
+    margin: 0.25rem 0;
+    border: none;
+    box-shadow: 3px 3px 5px gray;
+    background-color: var(--mainColor--);
+    cursor: pointer;
+}
+.btn-theme:hover{
+    filter: brightness(1.1);
+}
+
+.btn-theme:active, .btn-line:active{
+    filter: brightness(0.8);
+    box-shadow: 3px 3px 5px gray inset;
+}
+.btn-line:hover{
+    filter: brightness(0.8);
+}
+.btn-line{
+    background-color: transparent;
+    border: 2px solid var(--textWhite--);
+}
+
+.grid-1{
+    width: calc(100% / 12 * 1);
+}
+.grid-2{
+    width: calc(100% / 12 * 2);
+}
+.grid-3{
+    width: calc(100% / 12 * 3);
+}
+.grid-4{
+    width: calc(100% / 12 * 4);
+}
+.grid-5{
+    width: calc(100% / 12 * 5);
+}
+.grid-6{
+    width: calc(100% / 12 * 6);
+}
+.grid-7{
+    width: calc(100% / 12 * 7);
+}
+.grid-8{
+    width: calc(100% / 12 * 8);
+}
+.grid-9{
+    width: calc(100% / 12 * 9);
+}
+.grid-10{
+    width: calc(100% / 12 * 10);
+}
+.grid-11{
+    width: calc(100% / 12 * 11);
+}
+.grid-12{
+    width: calc(100% / 12 * 12);
+}
+
+/* ======== Header 設計 =========== */
+header{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+header #logo{
+    color: var(--mainColor--);
+}
+header nav{
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+header nav .bar{
+    width: 100%;
+    height: 2px;
+    background-color: var(--darkBlack--);
+    transform-origin: 0 0;
+    position: absolute;
+    left: 0;
+    transition: var(--transition--);
+}
+header nav .bar:nth-of-type(1){
+    top: 0;
+}
+header nav .bar:nth-of-type(2){
+    top: 9px;
+}
+header nav .bar:nth-of-type(3){
+    bottom: 0;
+}
+header nav .bar:nth-of-type(1).none{
+    transform: rotate(36.5deg);
+}
+header nav .bar:nth-of-type(2).none{
+    opacity: 0;
+}
+header nav .bar:nth-of-type(3).none{
+    transform: rotate(-36.5deg);
+}
+header menu{
+    width: 100%;
+    background-color: var(--alphaBlack--);
+    color: var(--textWhite--);
+    text-align: center;
+    padding: 20px 0;
+    overflow: hidden;
+    transition: var(--transition--);
+}
+header menu ul li a{
+    display: block;
+    transition: var(--transition--);
+}
+header menu ul li:hover a{
+    background-color: var(--mainColor--);
+}
+header menu.none{
+    /* display: none; */
+    padding: 0;
+    height: 0;
+}
+
+/* ============== Slide 設計 ================= */
+#slide{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+#slide .box{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#slide .box .pic{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: translateX(100%);
+    animation: sliding 25s linear infinite;
+}
+#slide .box .pic:nth-of-type(1){
+    background-image: url(../images/banner01.png);
+}
+#slide .box .pic:nth-of-type(2){
+    background-image: url(../images/banner02.png);
+    animation-delay: 5s;
+}
+#slide .box .pic:nth-of-type(3){
+    background-image: url(../images/banner03.png);
+    animation-delay: 10s;
+}
+#slide .box .pic:nth-of-type(4){
+    background-image: url(../images/banner04.png);
+    animation-delay: 15s;
+}
+#slide .box .pic:nth-of-type(5){
+    background-image: url(../images/banner05.png);
+    animation-delay: 20s;
+}
+
+#slide .theme{
+    width: 100%;
+    height: 100%;
+    background-color: var(--alphaBlack--);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#slide .theme .item{
+    width: 100%;
+    max-width: 300px;
+    padding: 0 15px;
+    color: var(--textWhite--);
+    line-height: 1.8em;
+}
+#slide .theme .item h2{
+    font-size: 40px;
+    line-height: 2em;
+}
+#slide .theme .item p{
+    text-align: justify;
+    margin-bottom: 1em;
+}
+
+
+@keyframes sliding{
+    0%{
+        transform: translateX(100%);
+        z-index: 1;
+    }
+    4%{
+        transform: translateX(0);
+        z-index: 5;
+    }
+    20%{
+        transform: translateX(0);
+    }
+    24%{
+        transform: translateX(-100%);
+        z-index: 5;
+    }
+    25%{
+        transform: translateX(-100%);
+        z-index: 1;
+    }
+    26%{
+        transform: translateX(100%);
+        z-index: 1;
+    }
+}
+
+/* ================= About 設計 ====================== */
+#about{
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--midGray--);
+    line-height: 1.7em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+#about .flex{
+    width: 100%;
+    padding: 30px 20px;
+}
+
+#about .flex h2,#about .flex h3{
+    line-height: 42px;
+}
+
+#about .flex .grid-10{
+    padding: 1em;
+}
+
+#about .flex .grid-10 p{
+    padding: 0.5em 0;
+}
+#about .flex .grid-10 i{
+    color: var(--mainColor--);
+}
+
+/* =================== Service 設計 ======================= */
+#service{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+#service .flex .banner{
+    text-align: center;
+    padding: 60px 15px;
+    background-color: var(--mainColor--);
+    color: var(--textWhite--);
+}
+#service .flex .grid-6{
+    position: relative;
+}
+#service .flex .grid-6 h3{
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    color: var(--textWhite--);
+    font-weight: 900;
+    text-align: center;
+    background-color: var(--alphaBlack--);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+/* ========================= Hot 設計 ============================== */
+
+#hot{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+#hot .flex{
+    padding: 40px 20px;
+}
+#hot .flex .banner{
+    padding: 40px 15px;
+}
+#hot .flex a{
+    display: block;
+    padding: 15px;
+    line-height: 1.8em;
+}
+#hot .flex a h3{
+    line-height: 48px;
+}
+
+/* ======================= Video 設計 ================================ */
+#video{
+    width: 100%;
+    height: 30vh;
+    background-image: url(../images/Gemini_Generated_Image.png);
+    background-size: cover;
+    background-position: center;
+}
+#video .grid-12{
+    align-items: center;
+    background-color: var(--mainAlphaColor--);
+    color: var(--textWhite--);
+    padding: 0 30px;
+    line-height: 2em;
+}
+
+/* ======================= Link 設計 ================================ */
+#link{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    color: var(--darkGray--);
+}
+#link .flex .banner{
+    text-align: center;
+    padding: 60px 20px;
+}
+#link .flex .item{
+    position: relative;
+    overflow: hidden;
+}
+#link .flex .item .box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 15px;
+    background-color: var(--alphaBlack--);
+    color: var(--textWhite--);
+}
+#link .flex .item .box h3,#link .flex .item .box p{
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* =================== 建議額外增加 (沒啥感覺 先不加)=================== */
+/* 1. 滑鼠選取顏色 真正專業網站會加的東西（原本還沒有）
+::selection{
+    background: var(--accentColor--);
+    color: var(--darkBlack--);
+}
+
+/* 2. 滾動條美化（桌機）
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--mainColor--);
+}
+*/
+
+/* ======================= Contact 設計 ================================ */
+/* 比較專業的色調
+#contact{
+    width: 100%;
+    color: var(--textWhite--);
+    background-color: var(--midGray--);
+}*/
+
+/*Footer 背景加一點粉色透明層（高級玩法）*/
+#contact{
+    background: linear-gradient(
+        135deg,
+        #1A2B48 0%,
+        #1A2B48 70%,
+        #E8AEB7 100%
+    );
+}
+
+#contact .flex{
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    line-height: 1.6em;
+}
+#contact .flex .item{
+    padding: 15px;
+    letter-spacing: 1px;
+}
+#contact .flex .item h3{
+    line-height: 6em;
+}
+#contact .flex .item p{
+    text-align: justify;
+    margin-bottom: 0.8em;
+}
+/*
+#contact .flex .item a{
+    color: var(--mainColor--);
+} */
+
+/* 變更為金色，比較不會暗暗的... */
+#contact .flex .item a{
+    color: var(--accentColor--);   /* 金色 */
+    font-weight: 500;
+    transition: var(--transition--);
+}
+    
+/* 原先的設計
+#contact .flex .item a:hover{
+    color: #FFBB00;
+} */
+ 
+/* 加強滑鼠過去的效果 */
+#contact .flex .item a:hover{
+    color: #FFD700;   /* 更亮的金色 */
+}
+
+/*
+#contact .flex .item i{
+    padding: 0 1em;
+} */
+
+/* 這整段會修改成...讓 icon 和文字分開控制
+效果會變成：
+文字白色
+圖示金色
+滑鼠移過去金色變亮
+#contact .flex .item a{
+    color: var(--textWhite--);
+}
+
+#contact .flex .item a i{
+    color: var(--accentColor--);
+    transition: var(--transition--);
+}
+
+#contact .flex .item a:hover i{
+    color: #FFD700;
+}
+*/
+
+#contact .flex .item hr{
+    margin: 10px 0;
+    border: 1px solid var(--darkGray--);
+}
+
+/* ======================= Footer 設計 ================================ */
+footer{
+    width: 100%;
+    padding: 2em 1em;
+    background-color: var(--darkBlack--);
+    color: var(--textWhite--);
+}
+footer p{
+    text-align: center;
+}
+
+@media only screen and (min-width: 480px){
+    .grid-sm-1{
+        width: calc(100% / 12 * 1);
+    }
+    .grid-sm-2{
+        width: calc(100% / 12 * 2);
+    }
+    .grid-sm-3{
+        width: calc(100% / 12 * 3);
+    }
+    .grid-sm-4{
+        width: calc(100% / 12 * 4);
+    }
+    .grid-sm-5{
+        width: calc(100% / 12 * 5);
+    }
+    .grid-sm-6{
+        width: calc(100% / 12 * 6);
+    }
+    .grid-sm-7{
+        width: calc(100% / 12 * 7);
+    }
+    .grid-sm-8{
+        width: calc(100% / 12 * 8);
+    }
+    .grid-sm-9{
+        width: calc(100% / 12 * 9);
+    }
+    .grid-sm-10{
+        width: calc(100% / 12 * 10);
+    }
+    .grid-sm-11{
+        width: calc(100% / 12 * 11);
+    }
+    .grid-sm-12{
+        width: calc(100% / 12 * 12);
+    }
+}
+@media only screen and (min-width: 744px){
+    .grid-md-1{
+        width: calc(100% / 12 * 1);
+    }
+    .grid-md-2{
+        width: calc(100% / 12 * 2);
+    }
+    .grid-md-3{
+        width: calc(100% / 12 * 3);
+    }
+    .grid-md-4{
+        width: calc(100% / 12 * 4);
+    }
+    .grid-md-5{
+        width: calc(100% / 12 * 5);
+    }
+    .grid-md-6{
+        width: calc(100% / 12 * 6);
+    }
+    .grid-md-7{
+        width: calc(100% / 12 * 7);
+    }
+    .grid-md-8{
+        width: calc(100% / 12 * 8);
+    }
+    .grid-md-9{
+        width: calc(100% / 12 * 9);
+    }
+    .grid-md-10{
+        width: calc(100% / 12 * 10);
+    }
+    .grid-md-11{
+        width: calc(100% / 12 * 11);
+    }
+    .grid-md-12{
+        width: calc(100% / 12 * 12);
+    }
+    /* ================= Header 設計 ==================== */
+    header{
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    header #logo{
+        width: 255px;
+    }
+    header menu{
+        width: calc(100% - 255px);
+        background-color: transparent;
+        color: var(--darkGray--);
+        padding: 0;
+        display: block!important;
+        height: auto!important;
+    }
+    header menu ul{
+        display: flex;
+        justify-content: flex-end;
+    }
+    /* */
+    header menu ul li a{
+        padding: 0 0.3em;
+    } 
+    
+    /* 滑鼠滑過同時增加一點動畫效果，像微微放大字體 
+    這樣滑鼠滑過文字時會：字體顏色變成金色. 背景保持原樣. 可選加微放大增加互動感
+    */
+    header menu ul li a{
+    color: var(--darkGray--);
+    transition: var(--transition--), transform 0.3s ease;
+    }
+    header menu ul li:hover a{
+    color: var(--accentColor--);
+    transform: scale(1.05);
+    }
+
+    header nav{
+        display: none;
+    }
+
+    /* =============== Slide 設計 ====================== */
+    #slide .theme .item{
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+    #slide .theme .item h2{
+        font-size: 60px;
+    }
+    #slide .theme .item p{
+        max-width: 500px;
+    }
+
+    /* ======================= Video 設計 ================================ */
+    #video{
+        height: 40vh;
+        justify-content: flex-end;
+    }
+
+    /* ======================= Link 設計 ================================ */
+    #link .flex .item .box{
+        opacity: 0;
+        /* top: 70px; */
+        left: 100px;
+        transition: var(--transition--);
+    }
+    #link .flex .item:hover .box{
+        opacity: 1;
+        /* top: 0; */
+        left: 0px;
+    }
+
+}
+@media only screen and (min-width: 1200px){
+    .grid-lg-1{
+        width: calc(100% / 12 * 1);
+    }
+    .grid-lg-2{
+        width: calc(100% / 12 * 2);
+    }
+    .grid-lg-3{
+        width: calc(100% / 12 * 3);
+    }
+    .grid-lg-4{
+        width: calc(100% / 12 * 4);
+    }
+    .grid-lg-5{
+        width: calc(100% / 12 * 5);
+    }
+    .grid-lg-6{
+        width: calc(100% / 12 * 6);
+    }
+    .grid-lg-7{
+        width: calc(100% / 12 * 7);
+    }
+    .grid-lg-8{
+        width: calc(100% / 12 * 8);
+    }
+    .grid-lg-9{
+        width: calc(100% / 12 * 9);
+    }
+    .grid-lg-10{
+        width: calc(100% / 12 * 10);
+    }
+    .grid-lg-11{
+        width: calc(100% / 12 * 11);
+    }
+    .grid-lg-12{
+        width: calc(100% / 12 * 12);
+    }
+
+    /* =============== Header 設計 ================== */
+    header menu ul li a{
+        padding: 0 1em;
+    }
+
+    /* =============== Service 設計 ================== */
+    #service .flex .grid-6{
+        overflow: hidden;
+        cursor: pointer;
+    }
+    #service .flex .grid-6 img{
+        filter: brightness(0.6);
+        transition: var(--transition--);
+    }
+    #service .flex .grid-6 h3{
+        bottom: -2.5em;
+        transition: var(--transition--);
+    }
+    #service .flex .grid-6:hover img{
+        filter: brightness(1);
+        transform: scale(1.2);
+    }
+    #service .flex .grid-6:hover h3{
+        bottom: 0;
+    }
+
+    /* =============== Hot 設計 ================== */
+    #hot .flex{
+        justify-content: space-between;
+    }
+}
